@@ -702,12 +702,13 @@ var GetData = {
         })
 
     },
-	//获取优惠卷
-	getCouponList: function(){
+	//用户优惠券查询
+	myCouponList: function(){
 		var jsonarr = {
-			'action': "getCouponsList",
+			'action': "myCouponList",
 			ReqContent: JSON.stringify({
-				"common": Base.All()
+				"common": Base.All(),
+                "special": {}
 			})
 		};
 		$.ajax({
@@ -727,6 +728,32 @@ var GetData = {
 			}	
 		})
 	},
+    //订单使用的优惠券总计查询
+    orderCouponSum: function(){
+        var jsonarr = {
+            'action': "orderCouponSum",
+            ReqContent: JSON.stringify({
+                "common": Base.All(),
+                "special": {}
+            })
+        };
+        $.ajax({
+            type: 'get',
+            url: url,
+            data: jsonarr,
+            timeout: 90000,
+            cache: false,
+            beforeSend: function(){
+            },
+            dataType: 'json',
+            success: function(o){
+                if(o.code == "200"){
+                    var ReturnHtml = _.template($('#getOrderCouponSum').html(), o.content);
+                    $("#YouHuiJuan").html(ReturnHtml);
+                }
+            }   
+        })
+    },
     getDeliveryList: function () {
         var jsonarr = { 'action': "getDeliveryList", ReqContent: JSON.stringify({ "common": Base.All(), "special": {} }) };
         $.ajax({
