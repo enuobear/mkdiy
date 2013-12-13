@@ -702,6 +702,31 @@ var GetData = {
         })
 
     },
+	//获取优惠卷
+	getCouponList: function(){
+		var jsonarr = {
+			'action': "getCouponsList",
+			ReqContent: JSON.stringify({
+				"common": Base.All()
+			})
+		};
+		$.ajax({
+			type: 'get',
+			url: url,
+			data: jsonarr,
+			timeout: 90000,
+			cache: false,
+			beforeSend: function(){
+			},
+			dataType: 'json',
+			success: function(o){
+				if(o.code == "200"){
+					var ReturnHtml = _.template($('#getCouponsListId').html(), o.content);
+					$("#YouHuiJuan").html(ReturnHtml);
+				}
+			}	
+		})
+	},
     getDeliveryList: function () {
         var jsonarr = { 'action': "getDeliveryList", ReqContent: JSON.stringify({ "common": Base.All(), "special": {} }) };
         $.ajax({
