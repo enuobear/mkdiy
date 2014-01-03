@@ -1,0 +1,12 @@
+mv resize\(10\).php 1.jpg
+mv resize\(11\).php 2.jpg
+mv resize\(12\).php 3.jpg
+mv resize\(13\).php 4.jpg
+mv resize\(14\).php 5.jpg
+mv resize\(15\).php 6.jpg
+mv resize\(16\).php 7.jpg
+mv resize\(17\).php 8.jpg
+mv resize\(18\).php 9.jpg
+mv resize\(19\).php 10.jpg
+mv resize\(20\).php 11.jpg
+mv resize\(21\).php 12.jpg
