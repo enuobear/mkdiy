@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>api</title>
+<script src="//mat1.gtimg.com/app/openjs/openjs.js#debug=yes"></script>
+<style type="text/css">
+*{
+	padding:0;
+	margin:0;
+}
+body{
+	font-size:12px;
+	padding-top:100px;
+}
+.btn{
+	width:200px;
+	background:#999;
+	text-align:center;
+	line-height:50px;
+	margin:0 auto;
+	font-size:14px;
+	color:#fff;
+	cursor:pointer;
+	background: -webkit-linear-gradient(top, #a9e4f7 0%,#0fb4e7 100%);
+}
+.show{
+	display:block;
+}
+textarea{
+	width:500px;
+	height:300px;
+}
+</style>
+</head>
+<body>
+
+<div class="btn" id="btn">发表微博</div>
+<div class="show" id="show">
+	<textarea id="text"></textarea>
+</div>
+
+ 
+<input type="button" value="登出" onclick="T.logout();"/>
+
+
+<script defer="defer">
+	T.init({appkey:801124054});
+
+	var loginTrue = 0; //登录状态判读
+
+	var btn = document.getElementById("btn");
+
+	btn.addEventListener("click", function(){
+		T.api("/user/info")
+			.success(function (response){
+				//alert([response.data.nick,response.data.email]);
+				loginTrue = 1;
+			})
+			.error(function (code, message) {
+				loginTrue = 0;
+			});
+		if(loginTrue == 1){
+			var txt = document.getElementById("text").value;
+
+			T.api("/t/add",{
+					"content": txt, //这是微博的内容
+					"clientip":"", //这是IP
+					"longitude":"", //这是经度
+					"latitude":"", //这是纬度
+					"syncflag":"1"
+				}, "json", "post")
+				.success(function (response){
+					alert(response.data.id);
+				});
+		}else{
+			T.login();
+		}
+	}, false);
+</script>
+</body>
+</html>
