@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+[% IF fp2sp %]
+<html class="fp2sp">
+[% ELSE %]
+<html>
+[% END %]
+
+<head>
+[% IF fp2sp %]
+[% IF ua.is_zoom_device %]
+    <meta name="viewport" content="width=[% ua.mb_browser_w %], initial-scale=1, user-scalable=yes" />
+[% ELSE %]
+    <!--<meta name="viewport" content="width=240,initial-scale=1.333, minimum-scale=1.333, maximum-scale=1.333" />-->
+    <script>
+        (function(){
+            var appMeta = {
+                init: function(value){
+                    var meta = document.createElement("meta"),
+                        scale = 1,
+                        sw = this.getCookie("screen-device-width");
+                    if(sw){
+                        scale = sw/value;
+                    }
+                    meta.name = "viewport";
+                    meta.content = "width="+value+", target-densitydpi=device-dpi, initial-scale="+scale+", minimum-scale="+scale+", maximum-scale="+scale;
+                    document.getElementsByTagName("head")[0].appendChild(meta);
+                },
+                getCookie: function(name) {
+                    var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+                    if (arr != null)
+                        return unescape(arr[2]);
+                    return null;
+                }
+            };
+            appMeta.init(240);
+        })();
+    </script>
+    <style type="text/css">
+        ul.box.main-nav li{font-size:9px;}
+        ul.box.tab4 li{font-size:10px;}
+    </style>
+[% END %]
+[% ELSE %]
+<script>
+    (function(){
+        var appMeta = {
+            init: function(value){
+                var meta = document.createElement("meta"),
+                    scale = 1,
+                    sw = this.getCookie("screen-device-width");
+                if(sw){
+                    scale = sw/value;
+                }
+                meta.name = "viewport";
+                meta.content = "width="+value+", target-densitydpi=device-dpi, initial-scale="+scale+", minimum-scale="+scale+", maximum-scale="+scale;
+                document.getElementsByTagName("head")[0].appendChild(meta);
+            },
+            getCookie: function(name) {
+                var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+                if (arr != null)
+                    return unescape(arr[2]);
+                return null;
+            }
+        };
+        appMeta.init(320);
+    })();
+</script>
+<!--
+<meta name="viewport" content="width=[% ua.mb_browser_w %], initial-scale=1, user-scalable=no">
+-->
+[% END %]
+
+<meta charset="utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<title>[% WD_GAME_TITLE %]</title>
+
+[% FOR _i1 IN css %]
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/[% _i1 %]?v=[% css_version %]" />
+[% END %]
+[% IF fp2sp %]
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/cache/css/fp2sp.css?v=[% css_version %]" />
+[% END %]
+[% IF MINIFY_CSS %]
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/min/gcard-all-201312312236.css">
+[% ELSE %]
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/common.css">
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/mypage.css">
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/card.css">
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/unit.css">
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/gacha.css">
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/profile.css">
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/contacts.css">
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/collection.css">
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/gcard_fp2sp.css">
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/promotion_global.css">
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/promotion.css">
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/mission.css">
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/exchange.css">
+<link rel="stylesheet" href="http://[% const.sgi_host %]/smart/gcard/css/invite.css">
+[% END %]
+<link rel="apple-touch-icon" href="http://[% const.sgi_host %]/i/gcard/icon/apple-touch-icon-57x57.png?v=[% img_version %]" />
+<link rel="apple-touch-icon" sizes="72x72" href="http://[% const.sgi_host %]/i/gcard/icon/apple-touch-icon-72x72.png?v=[% img_version %]" />
+<link rel="apple-touch-icon" sizes="114x114" href="http://[% const.sgi_host %]/i/gcard/icon/apple-touch-icon-114x114.png?v=[% img_version %]" />
+<style>
+[% IF fp2sp %]
+[% IF ua.is_zoom_device %]
+html { zoom: [% ua.mb_browser_w / 240 %] }
+[% END %]
+body {color:[% sty('color-text') %]; background-color:[% sty('color-bgcolor') %]; }
+a:link { color:[% sty('color-link') %]; }
+a:visited { color:[% sty('color-link') %]; }
+[% ELSE %]
+html { zoom: [% ua.mb_browser_w / 320 %] }
+[% END %]
+</style>
+</head>
+
+[% IF fp2sp && ua.is_sp_sdk %]
+<body class="service-sdk">
+[% ELSE %]
+<body>
+[% END %]
+
+<div id="container">
+[% IF is_blank(without_navigation) %]
+	<nav class="nav-bar clearfix">
+	<ul class="box main-nav sprite clearfix">
+	<li id="myroom"><a href="/_gcard_my_room">[% text('sub_header.sp.2') %][%#< 司令室 >#%]</a></li>
+	[% IF is_present(event_path) %]
+		<li id="event"><a href="[% event_path %]"><div class="event">
+		<div class="title"><img src="http://[% const.sgi_host %]/i/gcard/event/[% current_event_id %]/ic_menu.png?v=[% img_version %]"></div>
+		</div></a></li>
+	[% ELSE %]
+		<li id="event"><a href="_gcard_top"><div class="gcctop"><img src="http://[% const.sgi_host %]/i/gcard/smart/logo_common.png?v=[% img_version %]" alt="[% text('sub_header.sp.1') %][%#< ガンダムカードコレクション >#%] "></div></a></li>
+	[% END %]
+	<li id="menu" class="show-menu"><a>[% text('sub_header.sp.5') %][%#< メニュー >#%]</a></li>
+	</ul>
+	</nav>
+[% END %]
+<div id="content">
