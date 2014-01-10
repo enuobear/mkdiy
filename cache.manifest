@@ -1,7 +1,7 @@
 CACHE MANIFEST
 
 # 需要缓存的文件，无论在线与否，均从缓存里读取
-# VERSION 10.0 
+# VERSION 0.1 
 cache.js
 
 # 不需要缓存的文件，无论缓存中存在与否，均从新获取
