@@ -5,13 +5,13 @@ require([
     'router',
     'require'
 ],function($, _, Backbone, router, require){
-    console.log(1);
 	router.on('route:main', function(){
 		require(['todo'], function(HomeView){
 			HomeView();
 		});
         console.log('into main');
 	});
+
 
     Backbone.history.start();
     // var Sidebar = Backbone.Model.extend({

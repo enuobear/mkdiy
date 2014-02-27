@@ -1,9 +1,8 @@
 define([
 	'jquery',
 	'underscore',
-	'backbone',
-	'router'
-], function($, _, Backbone, router){
+	'backbone'
+], function($, _, Backbone){
 	var HomeView = function(){
 		var Sidebar = Backbone.Model.extend({
 			promptColor: function(csColor){
