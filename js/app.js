@@ -1,3 +1,11 @@
+//配置URL
+requirejs.config({
+    baseUrl: 'js/lib',
+    paths: {
+        app: '../app'
+    }
+});
+
 require([
     'jquery',
 	'underscore',
@@ -5,35 +13,14 @@ require([
     'router',
     'require'
 ],function($, _, Backbone, router, require){
+    console.log('start');
 	router.on('route:main', function(){
-		require(['todo'], function(HomeView){
+		require(['app/todo'], function(HomeView){
 			HomeView();
 		});
         console.log('into main');
 	});
 
-
+    //开启路由监听
     Backbone.history.start();
-    // var Sidebar = Backbone.Model.extend({
-    //     promptColor: function(csColor){
-    //         var cssColor = prompt("Please enter a CSS color:");
-    //         this.set({
-    //             color: cssColor
-    //         });
-    //     }
-    // });
-
-    // window.sidebar = new Sidebar();
-
-    // sidebar.on('change:color', function(model, color){
-    //     $('#sidebar').css({
-    //         background: color
-    //     });
-    // });
-
-    // sidebar.set({
-    //     color: 'red'
-    // });
-
-    // sidebar.promptColor();
 });
