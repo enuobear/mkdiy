@@ -1,18 +1,39 @@
-require.config({
-    baseUrl: "",
-    paths: {
-    }
-});
-
 require([
-	'underscore'
+    'jquery',
+	'underscore',
 	'backbone',
-	'require',
-	'router'
-],function(_, Backbone, require, router){
-	router.on('route:homepage', function(){
+    'router',
+    'require'
+],function($, _, Backbone, router, require){
+	router.on('route:main', function(){
 		require(['todo'], function(HomeView){
 			HomeView();
 		});
+        console.log('into main');
 	});
+
+
+    Backbone.history.start();
+    // var Sidebar = Backbone.Model.extend({
+    //     promptColor: function(csColor){
+    //         var cssColor = prompt("Please enter a CSS color:");
+    //         this.set({
+    //             color: cssColor
+    //         });
+    //     }
+    // });
+
+    // window.sidebar = new Sidebar();
+
+    // sidebar.on('change:color', function(model, color){
+    //     $('#sidebar').css({
+    //         background: color
+    //     });
+    // });
+
+    // sidebar.set({
+    //     color: 'red'
+    // });
+
+    // sidebar.promptColor();
 });
