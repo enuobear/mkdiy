@@ -1,19 +1,15 @@
 define([
-    'use!underscore',
-    'use!backbone',
-    'require'
-], function(Backbone, require) {
+    'underscore',
+    'backbone'
+], function(_, Backbone) {
+    console.log('router');
     var AppRouter = Backbone.Router.extend({
         routes: {
-            // homepage list
-            '': 'homepage',
-            '?*queryString': 'homepage'
+            '': 'main',
+            '?*queryString': 'main'
         }
-
     });
-
+    console.log('router_end');
     var appRouter = new AppRouter();
-
     return appRouter;
 });
-

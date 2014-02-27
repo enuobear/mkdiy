@@ -1,7 +1,7 @@
 define([
 	'jquery',
-	'use!underscore'
-	'use!backbone',
+	'underscore',
+	'backbone',
 	'router'
 ], function($, _, Backbone, router){
 	var HomeView = function(){
@@ -38,6 +38,8 @@ define([
 		// 	document.write(msg)
 		// });
 		// object.trigger("alert", "event trigger1");
+
+		// alert(1);
 
 	};
 
