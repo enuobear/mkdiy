@@ -6,7 +6,10 @@ define([
     var AppRouter = Backbone.Router.extend({
         routes: {
             '': 'main',
-            '?*queryString': 'main'
+			'main': 'main',
+			'prompt': 'prompt',
+			'json': 'json',
+			'todo': 'todo'
         }
     });
     console.log('router_end');

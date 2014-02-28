@@ -13,12 +13,29 @@ require([
     'router',
     'require'
 ],function($, _, Backbone, router, require){
-    console.log('start');
+	
+	//homepage
 	router.on('route:main', function(){
-		require(['app/todo'], function(HomeView){
-			HomeView();
+		require(['app/main'], function(HomeShow){
+			HomeShow();
 		});
-        console.log('into main');
+        console.log('homepage');
+	});
+
+	//prompt
+	router.on('route:prompt', function(){
+		require(['app/prompt'], function(PromptView){
+			PromptView();
+		});
+        console.log('prompt');
+	});
+
+	//prompt
+	router.on('route:json', function(){
+		require(['app/json'], function(Json){
+			Json();
+		});
+        console.log('json');
 	});
 
     //开启路由监听

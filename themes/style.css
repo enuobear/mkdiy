@@ -1,0 +1,32 @@
+body, section, div, p{
+	padding:0;
+	margin:0;
+}
+body{
+	font-size:12px;
+	font-family:Arial;
+}
+a{
+	text-decoration:none;
+	color:#333;
+}
+ul,li{
+	list-style:none;
+}
+ul{
+	width:80%;
+	margin:0 auto;
+}
+ul li{
+	line-height:30px;
+	margin-bottom:5px;
+	background:#eee;
+	text-indent:10px;
+}
+
+
+#sidebar{
+	width:100px;
+	height:100px;
+	margin:0 auto;
+}
