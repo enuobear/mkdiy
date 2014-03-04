@@ -19,7 +19,7 @@ define([
 		//homeView = new HomeView();		
 		
 		//$('#app_view').html(homeView.render().el);	
-		$('#app_view').html('<ul><li><a href=#main>Homepage</a></li><li><a href=#prompt>Prompt</a></li><li><a href=#json>JSON</a></li></ul>');
+		$('#app_view').html('<ul><li><a href=#main>Homepage</a></li><li><a href=#prompt>Prompt</a></li><li><a href=#json>JSON</a></li><li><a href=#todo>ToDO</a></li></ul>');
 	};
 
 	return HomeShow;

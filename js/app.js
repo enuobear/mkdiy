@@ -38,6 +38,15 @@ require([
         console.log('json');
 	});
 
+
+	//todo
+	router.on('route:todo', function(){
+		require(['app/todo'], function(Todo){
+			Todo();
+		});
+        console.log('todo');
+	});
+
     //开启路由监听
     Backbone.history.start();
 });
