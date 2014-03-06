@@ -16,8 +16,8 @@ require([
 	
 	//homepage
 	router.on('route:main', function(){
-		require(['app/main'], function(HomeShow){
-			HomeShow();
+		require(['app/main'], function(homeView){
+			homeView.init();
 		});
 	});
 
