@@ -1,14 +1,15 @@
 define([
 	'jquery',
 	'backbone',
-	'app/main.fn'	
-], function($, Backbone, fnProcess){
+	'app/main.fn',
+	'app/main.marquee',
+	'app/main.frame'
+], function($, Backbone, fnProcess, setMarquee, setFrame){
 	
 	var homeView = {
 		// 初始化
 		init: function(){
 			var $this = this;
-
 
 			$this.showType = false; //活动规则是否显示
 
@@ -21,11 +22,25 @@ define([
 
 			$this.bonusShow();
 			$this.ruleShow();
+			
+			// 文字滚动
+			setMarquee.init('.bonus_marquee', {
+				tMove: '.marquee',
+				cloneTag: 'dd'
+			});
+			var textTimer = setInterval(function(){
+				setMarquee.loop();
+			}, 10);
 
-			// alert(1);
+			// 屏幕旋转
 			window.addEventListener('orientationchange', function(){
-				// alert(2);
 				$this.ruleShow();
+
+				clearInterval(textTimer);
+				setMarquee.refer();
+				textTimer = setInterval(function(){
+					setMarquee.loop();
+				}, 10);
 			}, false);
 		},
 		// 遮罩层显示
@@ -56,15 +71,7 @@ define([
 
 			$this.bonusBtn.toggle(function(){
 				$this.maskShow("block");
-				// fnProcess.setAnimate({
-				// 	elem: $this.bonusList,
-				// 	distY: -5
-				// });
-				// fnProcess.setAnimate({
-				// 	elem: $this.bonusBtn,
-				// 	distY: $this.bonusListHeight-5
-				// });
-				console.log('bonusBtn.toggle1');
+
 				fnProcess.setAnimate({
 					elem: $this.bonusList,
 					tType: '-webkit-transform',
@@ -77,13 +84,6 @@ define([
 				});
 			}, function(){
 				$this.maskShow("none");
-				// fnProcess.setAnimate({
-				// 	elem: $this.bonusList,
-				// 	distY: -$this.bonusListHeight
-				// });
-				// fnProcess.setAnimate({
-				// 	elem: $this.bonusBtn
-				// });
 
 				fnProcess.setAnimate({
 					elem: $this.bonusList,
@@ -101,7 +101,6 @@ define([
 		ruleShow: function(){
 			var $this = this;
 
-			// alert(1);
 			var $btn     = $(".bonus_rule"),
 				$tIcon   = $(".bonus_rule_icon"),
 				$tView   = $(".bonus_rule_art"),
@@ -110,21 +109,12 @@ define([
 
 			$btn.toggle(function(){
 				$this.showType = true;
-				// $tIcon.css({
-				// 	'-webkit-transition': '-webkit-transform 1s ease-in-out',
-				// 	'-webkit-transform': 'rotate(180deg)'
-				// })
-				// $tView.css({
-				// 	'-webkit-transition': 'height 1s ease-in-out',
-				// 	'height': $tHeight+'px'
-				// });
 
 				fnProcess.setAnimate({
 					elem: $tIcon,
 					tType: '-webkit-transform',
 					tCSS: 'rotate(180deg)'
 				});
-			
 				fnProcess.setAnimate({
 					elem: $tView,
 					tType: 'height',
@@ -132,20 +122,12 @@ define([
 				});
 			}, function(){
 				$this.showType = false;
-				// $tIcon.css({
-				// 	'-webkit-transition': '-webkit-transform 1s ease-in-out',
-				// 	'-webkit-transform': 'rotate(0deg)'
-				// })
-				// $tView.css({
-				// 	'-webkit-transition': 'height 1s ease-in-out',
-				// 	'height': 0
-				// });
+
 				fnProcess.setAnimate({
 					elem: $tIcon,
 					tType: '-webkit-transform',
 					tCSS: 'rotate(0deg)'
 				});
-			
 				fnProcess.setAnimate({
 					elem: $tView,
 					tType: 'height',
