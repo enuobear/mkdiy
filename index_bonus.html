@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="format-detection" content="telephone=no" />
         <title>GS_H5</title>
-        <link rel="stylesheet" href="themes/bonus.css?v=2" type="text/css" />
+        <link rel="stylesheet" href="themes/bonus.css?v=3" type="text/css" />
     </head>
     <body>
         <header class="bonus_banner"><img src="themes/images/bonus_banner.png" /></header>
@@ -50,7 +50,7 @@
         <!-- 活动规则 -->
         <section class="bonus_rule">
             <h3 class="t_ac">活动规则</h3>
-            <div class="bonus_rule_icon">V</div>
+            <div class="bonus_rule_icon"></div>
             <div class="bonus_rule_art">
                 <article>
                     通过以下途径，点评任意地点，均可得到开宝箱的机会：<br>
@@ -66,22 +66,41 @@
             </div>
         </section>
 
-        <!-- 弹框 -->
-        <section class="bonus_frame">
-            恭喜
-            你的小宇宙强势爆发
-            获得<span>100</span>元携程任我行礼品卡
+        <!-- 弹框 获奖成功 -->
+        <section class="bonus_frame success">
+            <div style="height:170px;">
+                <dl>
+                    <dt>恭喜</dt>
+                    <dd>
+                        你的小宇宙强势爆发<br>
+                        获得<span>100</span>元携程任我行礼品卡
+                    </dd>
+                </dl>
+            </div>
+            <a class="this_btn" href="">继续点评开宝箱</a>
 
-            继续点评开宝箱
-
-            <div>
+            <div class="this_text">
                 请耐心等待，点评审核后7日内发放奖励<br>
                 有问题请联系vot@ctrip.com
             </div>
         </section>
+
+        <!-- 弹框 获奖失败 -->
+		<section class="bonus_frame failure">
+            <div style="height:220px;">
+                <dl>
+        			<dt>好可惜</dt>
+                    <dd>
+                        虽说人艰不拆，但是这次真的木有中奖。<br>
+                        再点评一次，幸运总会眷顾你。
+                    </dd>
+                </dl>
+            </div>
+			<a class="this_btn" href="">继续点评开宝箱</a>
+		</section>
         
         <!-- 遮罩层 -->
-        <section class="bonus_mask"></section>
+        <section class="bonus_mask" style="display:block"></section>
 
         <script data-main="js/app.js?v=1" src="js/lib/require.js"></script>
     </body>

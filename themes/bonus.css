@@ -73,8 +73,10 @@ body{
 	padding:20px 0;
 }
 .bonus_list .bonus_list_detail li{
-	background:url(images/bonus_gift.jpg) no-repeat 10px center;
-	background-size:auto 20px;
+/*	background:url(images/bonus_gift.jpg) no-repeat 10px center;
+	background-size:auto 20px;*/
+	background:url(images/bonus.png) no-repeat 10px -42px;
+	background-size:50px auto;
 	text-indent:40px;
 	line-height:35px;
 	display:block;
@@ -97,14 +99,16 @@ body{
 			border-radius:5px;
 }
 .bonus_list_click{
-	background:url(images/bonus_list.png) no-repeat 0 0;
+/*	background:url(images/bonus_list.png) no-repeat 0 0;
+	background-size:100% auto;*/
+	background:url(images/bonus.png) no-repeat 0 0;
 	background-size:100% auto;
 	color:#4d4d4d;
 	width:40px;
 	font-size:14px;
 	text-align:center;
 	line-height:14px;
-	padding:0 15px;
+	padding:2px 15px 0;
 	height:39px;
 	cursor:pointer;
 	right:10px;
@@ -207,25 +211,6 @@ body{
 	font:bolder 18px/45px Arial;
 }
 
-/*开宝箱*/
-.bonus_box_open{
-	border:2px dashed rgba(255,255,255,.3);
-	background:rgba(255,255,255,.1);
-	margin:10px;
-	display:-webkit-box;
-	padding-top:5px;
-	margin-bottom:20px;
-}
-.bonus_box_open li{
-	display:block;
-	text-align:center;
-	background:url(images/bonux_box_open.png) no-repeat center center;
-	background-size:80px auto;
-	width:33%;
-	height:80px;
-	cursor:pointer;
-	-webkit-box-flex:1;
-}
 
 /*滚动显示*/
 .bonus_marquee{
@@ -296,17 +281,22 @@ body{
 	line-height:20px;
 }
 .bonus_rule .bonus_rule_icon{
-	height:20px;
-	width:20px;
-	text-align:center;
-	line-height:20px;
+	width:11px;
+	height:6px;
 	margin:0 auto;
-	color:#229062;
-/*	border:2px solid rgba(0,0,0,.3);
-	border-right:none;
-	border-top:none;
-	-webkit-transform:rotate(-45deg);*/
+/*	background:url(images/bonus_icon.png) no-repeat center center;
+	background-size:100% 100%;*/
+	background:url(images/bonus.png) no-repeat 0 -35px;
+	background-size:50px auto;
 	-webkit-transform-origin:center center;
+}
+@-webkit-keyframes rotateup{
+	0%{ -webkit-transform: rotate(0deg); }
+	100%{ -webkit-transform: rotate(180deg); }
+}
+@-webkit-keyframes rotatedown{
+	0%{ -webkit-transform: rotate(180deg); }
+	100%{ -webkit-transform: rotate(0deg); }
 }
 .bonus_rule .bonus_rule_art{
 	height:0;
@@ -317,4 +307,97 @@ body{
 	border-bottom:20px solid rgba(0,0,0,0);
 	background:url(images/bonus_logo.png) no-repeat center bottom;
 	background-size:100px auto;
+}
+
+/*中奖弹框*/
+.bonus_frame{
+	width:90%;
+	display:none;
+	position:absolute;
+	top:100px;
+	left:50%;
+	margin-left:-45%;
+	z-index:1002;
+	height:280px;
+	padding:20px 10px 10px;
+	-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+	-webkit-border-radius:20px;
+			border-radius:20px;
+}
+.bonus_frame.success{
+	background-image:url(images/bonus_box.png?v=1), url(images/bonus_frame_success.png), -webkit-linear-gradient(top, #36be81 0%, #36be81 55%, #2da576 55%);
+	background-position:center 100px, 0 0, 0 0;
+	background-repeat:no-repeat;
+	background-size:150px auto, 100% 55%, 100% 100%;
+}
+.bonus_frame.failure{
+	background-image:url(images/bonus_head.png), -webkit-linear-gradient(top, #36be81 0%, #36be81 82%, #2da576 82%);
+	background-position:center 120px, 0 0;
+	background-repeat:no-repeat;
+	background-size:100px auto, 100% 100%;
+}
+
+.bonus_frame dl{
+	text-align:center;
+	text-shadow:1px 1px 1px rgba(0,0,0,.3);
+}
+.bonus_frame dt{
+	font:bold 22px/40px Arial;
+}
+.bonus_frame dd span{
+	color:#fdd303;
+	font-size:18px;
+}
+.bonus_frame .this_text{
+	text-align:center;
+	color:#acd5c2;
+	text-shadow:1px 1px 1px rgba(0,0,0,.1);
+}
+.bonus_frame .this_btn{
+	width:120px;
+	line-height:30px;
+	border:none;
+	background:#eddf38;
+	color:#a96424;
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+	display:block;
+	margin:0 auto;
+	-webkit-border-radius:5px;
+			border-radius:5px;
+}
+.bonus_frame.success .this_btn{
+	margin-bottom:5px;
+}
+
+
+/*开宝箱*/
+.bonus_box_open{
+	border:2px dashed rgba(255,255,255,.3);
+	background:rgba(255,255,255,.1);
+	margin:10px;
+	height:80px;
+	margin-bottom:20px;
+	position:relative;
+	padding-top:15px;
+}
+.bonus_box_open ul{
+	display:-webkit-box;
+	position:absolute;
+	left:0;
+	top:5px;
+	width:100%;
+}
+.bonus_box_open li{
+	display:block;
+	text-align:center;
+	width:33%;
+	line-height:20px;
+	-webkit-box-flex:1;
+}
+.bonus_box_open canvas{
+	position:relative;
+	z-index:2;
 }

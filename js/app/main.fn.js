@@ -2,7 +2,7 @@ define([
 	'jquery',
 	'backbone'	
 ], function($, Backbone){
-	var fnProcess = {
+	var FnProcess = {
 		getHeight: function(elem){
 			var $elem = elem,
 				$elHeight = $elem.innerHeight();
@@ -21,5 +21,5 @@ define([
 			$elem.css(style);
 		}
 	};
-	return fnProcess;
+	return FnProcess;
 });

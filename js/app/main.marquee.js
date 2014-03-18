@@ -2,7 +2,7 @@ define([
 	'jquery',
 	'backbone'	
 ], function($, Backbone){
-	var setMarquee = {
+	var SetMarquee = {
 		init: function(elem, conf){
 			var self = this;
 			var conf = conf || {};
@@ -46,5 +46,5 @@ define([
 			}
 		}
 	};
-	return setMarquee;
+	return SetMarquee;
 });

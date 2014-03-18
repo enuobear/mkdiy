@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="format-detection" content="telephone=no" />
+        <title>GS_H5</title>
+        <link rel="stylesheet" href="themes/bonus.css?v=3" type="text/css" />
+    </head>
+    <body>
+        <header class="bonus_banner"><img src="themes/images/bonus_banner.png" /></header>
+        <section class="bonus_list">
+
+            <!-- 没有活动奖品 -->
+<!--             <div class="bonus_list_info">你还没有中奖</div>
+            <article>
+                没有中奖是中奖的前奏<br>
+                快去点评，活动开宝箱的机会
+            </article>
+            <a href="">马上点评</a> -->
+
+            <!-- 获得了奖品 -->
+            <ul class="bonus_list_detail">
+                <li>100携程积分 X1</li>
+                <li>50元携程任我行礼品卡 X2</li>
+                <li>100元携程任我行礼品卡 X3</li>
+            </ul>
+        </section>
+        <div class="bonus_list_click">我的<br>奖品</div>
+
+
+
+<a href="bonus_index.html">
+        <div class="bonus_text t_ac">
+            点评成功！<br />
+            赶紧打开其中一个宝箱吧！
+        </div>
+</a>
+        <div class="bonus_box_open">
+            <ul><li>A</li><li>B</li><li>C</li></ul> 
+            <canvas id="bonus"></canvas>
+        </div>
+
+        <!-- 获得奖品的人滚动 -->
+        <dl class="bonus_marquee">
+            <dt class="marquee">1礼品卡，2礼品卡，3礼品卡，4礼品卡，5礼品卡，6礼品卡，</dt>
+        </dl>
+
+        <!-- 活动规则 -->
+        <section class="bonus_rule">
+            <h3 class="t_ac">活动规则</h3>
+            <div class="bonus_rule_icon"></div>
+            <div class="bonus_rule_art">
+                <article>
+                    通过以下途径，点评任意地点，均可得到开宝箱的机会：<br>
+                    a) 手机登陆 m.ctrip.com/you/comment；<br>
+                    b) 微信添加“携程攻略社区”，点击“游友互助”—“写点评”;<br>
+                    c) 微信添加“携程旅行网”，点击“热门活动”—“有奖点评”;<br><br>
+                    本次活动奖品有：100携程积分，50元携程任我行礼品卡，100元携程任我行礼品卡，热门景点自由行线路等。<br>
+                    1. 每条点评需至少10个汉字，否则无法开启宝箱。发表成功后，选择其一宝箱打开。<br>
+                    2. 每条点评需原创且并且真实有效，禁止抄袭、恶意灌水等非真实点评，情节严重者将被取消获奖资格。<br>
+                    3. 活动中奖用户，以携程攻略社区官方微信号公布结果，请敬请留意动向。<br>
+                    4. 携程攻略社区保留活动的最终解释权，如果有关活动疑问请联系邮箱：vot@ctrip.com。
+                </article>
+            </div>
+        </section>
+
+        <!-- 弹框 获奖成功 -->
+<!--         <section class="bonus_frame success">
+            <div style="height:170px;">
+                <dl>
+                    <dt>恭喜</dt>
+                    <dd>
+                        你的小宇宙强势爆发<br>
+                        获得<span>100</span>元携程任我行礼品卡
+                    </dd>
+                </dl>
+            </div>
+            <a class="this_btn" href="">继续点评开宝箱</a>
+
+            <div class="this_text">
+                请耐心等待，点评审核后7日内发放奖励<br>
+                有问题请联系vot@ctrip.com
+            </div>
+        </section> -->
+
+        <!-- 弹框 获奖失败 -->
+		<section class="bonus_frame failure">
+            <div style="height:220px;">
+                <dl>
+        			<dt>好可惜</dt>
+                    <dd></dd>
+                </dl>
+            </div>
+			<a class="this_btn" href="">继续点评开宝箱</a>
+		</section>
+        
+        <!-- 遮罩层 -->
+        <section class="bonus_mask"></section>
+
+        <script src="js/lib/require.js"></script>
+    </body>
+</html>

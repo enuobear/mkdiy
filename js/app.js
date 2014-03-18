@@ -8,16 +8,17 @@ requirejs.config({
 
 require([
     'jquery',
+    'handlebars-v1.3.0',
 	'underscore',
 	'backbone',
     'router',
     'require'
-],function($, _, Backbone, router, require){
+],function($, HandleBars, _, Backbone, router, require){
 	
 	//homepage
 	router.on('route:main', function(){
-		require(['app/main'], function(homeView){
-			homeView.init();
+		require(['app/main'], function(HomeView){
+			HomeView.init();
 		});
 	});
 
